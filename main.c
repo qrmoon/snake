@@ -13,11 +13,11 @@
 #define WIDTH 800
 #define HEIGHT 600
 
-#define GRID_SIZE 32
+#define SNAKE_GRID_SIZE 32
 
 #define SNAKE_USING_SDL
-#define SNAKE_LIMIT_X (WIDTH/GRID_SIZE - 1)
-#define SNAKE_LIMIT_Y (HEIGHT/GRID_SIZE - 1)
+#define SNAKE_LIMIT_X (WIDTH/SNAKE_GRID_SIZE - 1)
+#define SNAKE_LIMIT_Y (HEIGHT/SNAKE_GRID_SIZE - 1)
 #define SNAKE_WRAP
 
 #include "snake.h"
@@ -46,14 +46,14 @@ int main() {
 
 
   srand(time(NULL));
-  SDL_Rect rect = {0, 0, GRID_SIZE, GRID_SIZE};
-  snake_t snake = snake_init(WIDTH / GRID_SIZE / 2,
-                              HEIGHT / GRID_SIZE / 2, 4);
+  SDL_Rect rect = {0, 0, SNAKE_GRID_SIZE, SNAKE_GRID_SIZE};
+  snake_t snake = snake_init(WIDTH / SNAKE_GRID_SIZE / 2,
+                              HEIGHT / SNAKE_GRID_SIZE / 2, 4);
   int move_interval = 200;
 
   vec2i apple = {
-    rand() % (WIDTH / GRID_SIZE),
-    rand() % (HEIGHT / GRID_SIZE)
+    rand() % (WIDTH / SNAKE_GRID_SIZE),
+    rand() % (HEIGHT / SNAKE_GRID_SIZE)
   };
 
   Uint32 last_move = SDL_GetTicks();
@@ -130,8 +130,8 @@ int main() {
 
     snake_draw(&snake, surface);
 
-    rect.x = apple.x * GRID_SIZE;
-    rect.y = apple.y * GRID_SIZE;
+    rect.x = apple.x * SNAKE_GRID_SIZE;
+    rect.y = apple.y * SNAKE_GRID_SIZE;
     SDL_FillRect(surface, &rect, SDL_MapRGB(surface->format, 255, 0, 0));
 
     SDL_UpdateWindowSurface(window);

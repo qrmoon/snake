@@ -96,10 +96,10 @@ bool snake_grow(snake_t* snk) {
 
 #ifdef SNAKE_USING_SDL
 void snake_draw(snake_t* snk, SDL_Surface* surface) {
-  SDL_Rect rect = {0, 0, GRID_SIZE, GRID_SIZE};
+  SDL_Rect rect = {0, 0, SNAKE_GRID_SIZE, SNAKE_GRID_SIZE};
   for (int i = snk->size-1; i >= 0; i--) {
-    rect.x = snk->body[i].x * GRID_SIZE;
-    rect.y = snk->body[i].y * GRID_SIZE;
+    rect.x = snk->body[i].x * SNAKE_GRID_SIZE;
+    rect.y = snk->body[i].y * SNAKE_GRID_SIZE;
     SDL_FillRect(surface, &rect, SDL_MapRGB(surface->format, 255, 255, 255));
   }
 }
