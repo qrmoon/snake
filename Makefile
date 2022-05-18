@@ -19,5 +19,8 @@ BIN = bin/main
 $(BIN): main.c
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
 
+run: $(BIN)
+	./$(BIN)
+
 clean:
 	rm $(BIN)*
