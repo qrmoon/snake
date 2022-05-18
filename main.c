@@ -16,8 +16,8 @@
 #define GRID_SIZE 32
 
 #define SNAKE_USING_SDL
-#define SNAKE_LIMIT_X (WIDTH / GRID_SIZE)
-#define SNAKE_LIMIT_Y (HEIGHT / GRID_SIZE)
+#define SNAKE_LIMIT_X (WIDTH/GRID_SIZE - 1)
+#define SNAKE_LIMIT_Y (HEIGHT/GRID_SIZE - 1)
 #define SNAKE_WRAP
 
 #include "snake.h"
