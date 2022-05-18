@@ -101,8 +101,12 @@ int main() {
     Uint32 time_now = SDL_GetTicks();
     if (time_now >= last_move + move_interval) {
       if (!snake_move(&snake)) {
-        puts("Game over!\n");
-        SDL_Delay(2000);
+        char buff[64];
+        memset(buff, 0, 64);
+        sprintf(buff, "%lu points", snake.size);
+        int ok = SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                                          ":-(", buff, window);
+        if (ok < 0) puts(buff);
         shouldQuit = true;
       }
 
