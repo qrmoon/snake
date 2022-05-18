@@ -10,8 +10,8 @@
 #include <stdbool.h>
 #include <time.h>
 
-#define WIDTH 800
-#define HEIGHT 600
+#define WIDTH 768
+#define HEIGHT 576
 
 #define SNAKE_GRID_SIZE 32
 
