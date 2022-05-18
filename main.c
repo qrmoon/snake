@@ -106,17 +106,15 @@ int main() {
         shouldQuit = true;
       }
 
-      int id = snake_overlaps(&snake, apple);
-      if (id == 0) {
+      if (snake_overlaps(&snake, apple) == 0) {
         apple.x = rand() % SNAKE_LIMIT_X;
         apple.y = rand() % SNAKE_LIMIT_Y;
 
         snake_grow(&snake);
-      } else if (id > 0) {
-        do {
-          apple.x = rand() % SNAKE_LIMIT_X;
-          apple.y = rand() % SNAKE_LIMIT_Y;
-        } while (snake_overlaps(&snake, apple) >= 0);
+      }
+      while (snake_overlaps(&snake, apple) >= 0) {
+        apple.x = rand() % SNAKE_LIMIT_X;
+        apple.y = rand() % SNAKE_LIMIT_Y;
       }
 
       snake.last_dir = snake.dir;
