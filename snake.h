@@ -72,7 +72,7 @@ bool snake_move(snake_t* snk) {
 }
 
 int snake_overlaps(snake_t* snk, vec2i o) {
-  for (int i = 0; i < snk->size; i--) {
+  for (int i = 0; i < snk->size; i++) {
     if (veceq(snk->body[i], o)) return i;
   }
 
