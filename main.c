@@ -58,12 +58,12 @@ int main() {
 
   Uint32 last_move = SDL_GetTicks();
 
-  bool shouldQuit = false;
-  while (!shouldQuit) {
+  bool should_quit = false;
+  while (!should_quit) {
     SDL_Event e;
     while (SDL_PollEvent(&e) != 0) {
       if (e.type == SDL_QUIT) {
-        shouldQuit = true;
+        should_quit = true;
       } else if (e.type == SDL_KEYDOWN) {
         switch (e.key.keysym.sym) {
           case SDLK_RIGHT:
@@ -107,7 +107,7 @@ int main() {
         int ok = SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
                                           ":-(", buff, window);
         if (ok < 0) puts(buff);
-        shouldQuit = true;
+        should_quit = true;
       }
 
       if (snake_overlaps(&snake, apple) == 0) {
